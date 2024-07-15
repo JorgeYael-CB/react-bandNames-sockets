@@ -15,6 +15,7 @@ const connectionSocketServer = () => {
 function App() {
   const [ socket ] = useState(connectionSocketServer())
   const [Online, setOnline] = useState(false);
+  const [bands, setBands] = useState([]);
 
 
   useEffect(() => {
@@ -36,6 +37,23 @@ function App() {
   }, [socket])
 
 
+  useEffect(() => {
+    socket.on('current-bands', (data) => {
+      setBands(data)
+    })
+  }, [socket])
+
+
+  const votar = ( id ) => {
+    socket.emit('votar-banda', id);
+  }
+
+  const deleteBand = (id) => {
+    socket.emit('delete-band', id)
+  }
+
+
+
   return (
     <div className="container">
       <div className="alert">
@@ -54,7 +72,11 @@ function App() {
 
       <div className="row">
         <div className="col-8">
-          <BandList/>
+          <BandList
+            data={ bands }
+            votar={ votar }
+            deleteBand={ deleteBand }
+          />
         </div>
 
         <div className="col-4">
