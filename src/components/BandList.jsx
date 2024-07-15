@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-export const BandList = ( {data, votar, deleteBand} ) => {
+export const BandList = ( {data, votar, deleteBand, changeNameBand} ) => {
   const [bands, setBands] = useState(data);
 
 
@@ -26,6 +26,7 @@ export const BandList = ( {data, votar, deleteBand} ) => {
     console.log({id, name})
 
     //TODO: disparar el evento de sockets
+    changeNameBand(name, id);
   }
 
 
