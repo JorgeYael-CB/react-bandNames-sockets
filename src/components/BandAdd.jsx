@@ -1,6 +1,15 @@
 
-export const bandAdd = () => {
+export const BandAdd = () => {
   return (
-    <div>bandAdd</div>
+    <>
+      <h3>Agregar banda</h3>
+      <form>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Nuevo nombre de banda"
+        />
+      </form>
+    </>
   )
 }

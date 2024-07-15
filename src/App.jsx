@@ -1,3 +1,4 @@
+import { BandAdd, BandList } from './components'
 
 
 
@@ -11,6 +12,19 @@ function App() {
           <span className="text-success">Online</span>
           <span className="text-danger">Offline</span>
         </p>
+      </div>
+
+      <h1>Band Names</h1>
+      <hr />
+
+      <div className="row">
+        <div className="col-8">
+          <BandList/>
+        </div>
+
+        <div className="col-4">
+          <BandAdd/>
+        </div>
       </div>
 
     </div>
